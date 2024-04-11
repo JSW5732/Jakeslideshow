@@ -1,20 +1,19 @@
 import { LitElement, html, css } from 'lit';
 
 /**
- * Now it's your turn. Here's what we need to try and do:
- * 1. Get you HTML from your card working in here 
- * 2. Get your CSS rescoped as needed to work here
+ * Now it's your turn. Here's what we need to try and do
+ * 1. 
  */
 
 export class MyCard extends LitElement {
 
   static get tag() {
-    return 'my-card';
+    return 'image-gallery';
   }
 
   constructor() {
     super();
-    this.title = "My card";
+    this.title = "Image Gallery";
   }
 
   static get styles() {
@@ -36,4 +35,4 @@ export class MyCard extends LitElement {
   }
 }
 
-globalThis.customElements.define(MyCard.tag, MyCard);
+globalThis.customElements.define(ImageGallery.tag, ImageGallery);
