@@ -30,115 +30,64 @@
   <polaris-chip title="Faculty and Staff"></polaris-chip>
   <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
   <polaris-chip title="Grants and donations"></polaris-chip>
-
+  <link rel="stylesheet" type="text/css" href="style.css"> 
   <h1>image-gallery</h1>
 
-  <div class="container"></div>
+  Click to view energy drinks
+  <br><br>
+  <div class="firstImgContainter">
+    <img class="firstImg" src="https://eatzpizzeria.com/wp-content/uploads/2023/05/red-bull.jpg" onclick="openSlideShow()">
+  </div>
+  <dialog class="dialog">
+    <button onclick="closeSlideShow()">X</button>
+    <play-list>
+    </play-list>
+  </dialog>
+  
+  <script>
+    const dialog = document.querySelector("dialog");
+    //document.querySelectorAll("play-list").innerHTML = document.querySelectorAll("play-list")[0].querySelectorAll("play-list")[0].shadowRoot.innerHTML;
 
-  <div class="mySlides">
-  <div class="numbertext">1 / 6</div>
-  <img src="https://eatzpizzeria.com/wp-content/uploads/2023/05/red-bull.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlides">
-    <div class="numbertext">2 / 6</div>
-    <img src="https://m.media-amazon.com/images/I/51ZZUcrumNL._SX300_SY300_QL70_FMwebp_.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlides">
-    <div class="numbertext">3 / 6</div>
-    <img src="https://www.elitenutritionalproducts.com/wp-content/uploads/2020/12/C4-Original.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlides">
-    <div class="numbertext">4 / 6</div>
-    <img src="https://storage.googleapis.com/images-cub-prd-9400d55.cub.prd.v8.commerce.mi9cloud.com/product-images/detail/02ec107c-2930-40ba-958b-5ad6762fcdff.jpeg" style="width:100%">
-  </div>
-  
-  <div class="mySlides">
-    <div class="numbertext">5 / 6</div>
-    <img src="https://m.media-amazon.com/images/I/51wTC0XCQ3L._SY300_SX300_QL70_FMwebp_.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlides">
-    <div class="numbertext">6 / 6</div>
-    <img src="https://i5.walmartimages.com/seo/Prime-Hydration-Sports-Drink-Variety-Pack-Energy-Drink-Electrolyte-Beverage-Lemon-Lime-Tropical-Punch-Blue-Raspberry-16-9-Fl-Oz-6-Pack_89f10de7-a1db-4de6-99a0-81943caacd0e.b46f7ce23dced1fdd87cb055406ec7fa.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" style="width:100%">
-  </div>
-  
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  
-  <div class="caption-container">
-    <p id="caption"></p>
-  </div>
+    function openSlideShow(){
+      dialog.showModal();
+    }
 
-<div class="row">
-  <div class="column">
-    <img class="demo cursor" src="https://eatzpizzeria.com/wp-content/uploads/2023/05/red-bull.jpg" style="width:100%"
-    onclick="currentSlide(1)" alt="Redbull">
-  </div>
-<div class="column">
-  <img class="demo cursor" src="https://m.media-amazon.com/images/I/51ZZUcrumNL._SX300_SY300_QL70_FMwebp_.jpg"
-  style="width:100%" onclick="currentSlide(2)" alt="Monster">
-</div>
-<div class="column">
-  <img class="demo cursor" src="https://www.elitenutritionalproducts.com/wp-content/uploads/2020/12/C4-Original.jpg"
-  style="width:100%" onclick="currentSlide(3)" alt="C4">
-</div>
-<div class="column">
-  <img class="demo cursor" src="https://storage.googleapis.com/images-cub-prd-9400d55.cub.prd.v8.commerce.mi9cloud.com/product-images/detail/02ec107c-2930-40ba-958b-5ad6762fcdff.jpeg"
-  style="width:100%" onclick="currentSlide(4)" alt="Celcius">
-</div>
-<div class="column">
-  <img class="demo cursor" src="https://m.media-amazon.com/images/I/51wTC0XCQ3L._SY300_SX300_QL70_FMwebp_.jpg" style="width:100%"
-  style="width:100%" onclick="currentSlide(5)" alt="Ghost">
-</div>
-<div class="column"></div>
-<img class="demo cursor" src="https://i5.walmartimages.com/seo/Prime-Hydration-Sports-Drink-Variety-Pack-Energy-Drink-Electrolyte-Beverage-Lemon-Lime-Tropical-Punch-Blue-Raspberry-16-9-Fl-Oz-6-Pack_89f10de7-a1db-4de6-99a0-81943caacd0e.b46f7ce23dced1fdd87cb055406ec7fa.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" style="width:100%"
-style="width:100%" onclick="currentSlide(6)" alt="Prime">
-</div>
-</div>
-</div>
+    function closeSlideShow(){
+      dialog.close();
+    }
 
-  <my-card></my-card>
+    let slideIndex = 1;
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      const slides = document.querySelector("play-list").getElementsByClassName("mySlides");
+        if(slides.length>0){
+          if (n > slides.length) {slideIndex = 1} 
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none"; 
+          }
+          slides[slideIndex-1].style.display = "block"; 
+        }
+      }
+    </script>
+
 
  
 </body>
 
  <!-- this is what is bringing in the definition for this tag -->
  <script type="module" src="./src/polaris-chip.js"></script>
- <script type="module" src="./src/my-card.js"></script>
-<script>
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsBByClassName("mySlides");
-  let dots = document.getElementsByClassName("demo");
-  let captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
+ <script type="module" src="./src/play-list.js"></script>
+ <script type="module" src="./src/media-image.js"></script>
 
 
-</script>
 </html>
